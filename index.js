@@ -2,12 +2,14 @@ const express = require("express")
 const mongoose = require("mongoose")
 const { username, password } = require("./config")
 const authRouter = require("./routes/authRoutes")
+const projectRouter = require("./routes/projectRouter")
 const PORT = process.env.PORT || 5001
 
 const app = express()
 
 app.use(express.json())
 app.use("/auth", authRouter)
+app.use("/project", projectRouter)
 
 const start = async () => {
   try {
